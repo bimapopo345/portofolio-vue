@@ -10,50 +10,39 @@
       >
         Work Experiences
       </h2>
+
       <div class="space-y-8">
-        <!-- Pengalaman Kerja 1 -->
-        <div
-          class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transform hover:shadow-lg transition-shadow duration-300"
-          data-aos="fade-up"
-        >
-          <h3 class="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">
-            Assistant Lecturer | Routing & Switching Technology
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400">
-            Institut Pertanian Bogor (IPB), Bogor, West Java, Indonesia
-          </p>
-          <span class="text-sm text-gray-500 dark:text-gray-400"
-            >Aug, 2024 - Present · 6 months</span
-          >
-          <ul class="list-disc ml-5 mt-4 text-gray-700 dark:text-gray-300">
-            <li>
-              Assist in delivering lectures and practical sessions on Routing &
-              Switching.
-            </li>
-            <li>
-              Instruct students in configuring Cisco devices, including Routers
-              and Switches.
-            </li>
-            <li>
-              Guide students in using Cisco Packet Tracer and IOS for network
-              simulations.
-            </li>
-            <li>
-              Support students in troubleshooting and resolving network issues.
-            </li>
-            <li>
-              Collaborate with lead lecturer to evaluate student performance and
-              develop instructional materials.
-            </li>
-          </ul>
-        </div>
-        <!-- Tambahkan pengalaman kerja lain dengan struktur serupa -->
+        <!-- Looping semua experience -->
+        <ExperienceCard
+          v-for="(exp, index) in experiences"
+          :key="index"
+          :experience="exp"
+        />
       </div>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import ExperienceCard from "@/components/ExperienceCard.vue";
+
+const experiences = ref([
+  {
+    title: "Assistant Lecturer | Routing & Switching Technology",
+    company: "Institut Pertanian Bogor (IPB), Bogor, West Java, Indonesia",
+    date: "Aug, 2024 - Present · 6 months",
+    bullets: [
+      "Assist in delivering lectures and practical sessions on Routing & Switching.",
+      "Instruct students in configuring Cisco devices, including Routers and Switches.",
+      "Guide students in using Cisco Packet Tracer and IOS for network simulations.",
+      "Support students in troubleshooting and resolving network issues.",
+      "Collaborate with lead lecturer to evaluate student performance and develop instructional materials.",
+    ],
+  },
+  // Jika ada pengalaman lain, tambahkan di sini
+]);
+</script>
 
 <style scoped>
 /* Tambahkan gaya khusus jika diperlukan */
